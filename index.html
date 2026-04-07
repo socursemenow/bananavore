@@ -4,7 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bananavore — Plant-Based Filipino Luncheon Meat</title>
+<meta name="description" content="Plant-based luncheon meat crafted from banana pseudostems, peels & blossoms. Filipino-grown. Filipino-inspired.">
 <link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<meta property="og:title" content="Bananavore — Fuel Your Day, The Plant-Based Way">
+<meta property="og:description" content="Plant-based luncheon meat crafted from banana pseudostems, peels & blossoms. Filipino-grown. Filipino-inspired.">
+<meta property="og:image" content="images/logo.png">
+<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -20,14 +27,29 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 --r:8px;
 }
 
+/* ─── Scroll reveal ─── */
 .rv{opacity:0;transform:translateY(24px);transition:all .8s cubic-bezier(.22,1,.36,1)}.rv.vis{opacity:1;transform:none}
+
+/* ─── Nav logo glow ─── */
+@keyframes glowBreath{
+  0%,100%{filter:brightness(10) drop-shadow(0 0 4px rgba(232,184,74,.1))}
+  50%{filter:brightness(10) drop-shadow(0 0 14px rgba(232,184,74,.4)) drop-shadow(0 0 30px rgba(255,255,255,.12))}
+}
+@keyframes shineSweep{
+  0%{left:-60%;opacity:0}
+  20%{opacity:1}
+  100%{left:120%;opacity:0}
+}
 
 /* ─── NAV ─── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .4s}
 .nav.solid{background:rgba(28,28,24,.95);backdrop-filter:blur(12px);padding:12px 0}
 .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
 .nav-left{display:flex;align-items:center;gap:10px}
-.nav-logo{height:36px;width:auto;filter:brightness(10)}
+.nav-logo-wrap{cursor:pointer;position:relative;display:inline-block}
+.nav-logo-wrap .shine{position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0;animation:shineSweep 1.2s ease .5s forwards}
+.nav-logo{height:36px;width:auto;filter:brightness(10);animation:glowBreath 3s ease-in-out infinite;transition:all .6s ease}
+.nav.solid .nav-logo{animation:none;filter:brightness(10)}
 .nav-brand{font-family:var(--head);font-size:18px;color:#fff;font-weight:700;letter-spacing:1px;cursor:pointer}
 .nav-links{display:flex;gap:32px}
 .nav-link{font-size:13px;color:rgba(255,255,255,.5);font-weight:400;cursor:pointer;transition:color .3s;letter-spacing:.5px}
@@ -35,7 +57,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .nav-cta{font-size:12px;font-weight:600;padding:10px 28px;border:1px solid rgba(255,255,255,.3);color:#fff;transition:all .3s;letter-spacing:.5px}
 .nav-cta:hover{background:#fff;color:var(--dark)}
 
-/* ─── HERO: FULL PHOTO ─── */
+/* ─── HERO ─── */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
 .hero-bg{position:absolute;inset:0;background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#3A5A1A,#2A3A10)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,24,.35) 0%,rgba(28,28,24,.65) 100%)}
@@ -53,7 +75,27 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .hero-scroll span{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.25)}
 .hero-scroll div{width:1px;height:28px;background:linear-gradient(rgba(255,255,255,.3),transparent)}
 
-/* ─── INTRO (like La Lune "A French Fling") ─── */
+/* ─── SHOWCASE ─── */
+@keyframes plateFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+@keyframes orb1{0%{transform:rotate(0deg) translateX(170px) rotate(0deg)}100%{transform:rotate(360deg) translateX(170px) rotate(-360deg)}}
+@keyframes orb2{0%{transform:rotate(120deg) translateX(200px) rotate(-120deg)}100%{transform:rotate(480deg) translateX(200px) rotate(-480deg)}}
+@keyframes orb3{0%{transform:rotate(240deg) translateX(155px) rotate(-240deg)}100%{transform:rotate(600deg) translateX(155px) rotate(-600deg)}}
+@keyframes bobSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.showcase{padding:80px 40px 40px;background:var(--cream);position:relative;overflow:hidden}
+.showcase-wrap{max-width:500px;margin:0 auto;position:relative;display:flex;align-items:center;justify-content:center;min-height:440px}
+.showcase-img{width:min(75%,340px);position:relative;z-index:5;animation:plateFloat 6s ease-in-out infinite;filter:drop-shadow(0 24px 48px rgba(0,0,0,.12)) drop-shadow(0 4px 12px rgba(0,0,0,.06))}
+.showcase-ring{position:absolute;top:50%;left:50%;width:0;height:0;z-index:2}
+.showcase-ring .orb{position:absolute;top:0;left:0;transform-origin:0 0}
+.showcase-deco{position:absolute;pointer-events:none;z-index:1;opacity:.08}
+.showcase-badge{position:absolute;z-index:6;background:#fff;border-radius:50px;padding:8px 16px;box-shadow:0 4px 20px rgba(0,0,0,.06);display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--dark);white-space:nowrap}
+.showcase-badge .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.showcase-text{text-align:center;padding:16px 32px 0;position:relative;z-index:3}
+.showcase-text p{font-family:var(--head);font-size:clamp(17px,2.5vw,24px);font-style:italic;color:var(--dark);font-weight:400;line-height:1.5}
+.showcase-text em{color:var(--green);font-weight:700;font-style:normal}
+
+/* ─── INTRO ─── */
 .intro{padding:100px 40px;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .intro-title{font-family:var(--head);font-size:clamp(28px,4vw,44px);font-weight:400;line-height:1.2;margin-bottom:24px;font-style:italic;color:var(--dark)}
 .intro-title em{font-style:normal;color:var(--green);font-weight:700}
@@ -65,18 +107,15 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .intro-img-box img{width:100%;height:100%;object-fit:cover}
 .intro-img-box.tall{grid-row:1/3}
 
-/* ─── PRODUCTS (like Cafe on Eleventh categories) ─── */
+/* ─── PRODUCTS ─── */
 .products{background:var(--dark);padding:100px 40px}
 .products-inner{max-width:1000px;margin:0 auto}
 .products-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:10px;font-weight:500}
 .products-title{font-family:var(--head);font-size:clamp(28px,4vw,44px);color:#fff;text-align:center;font-weight:400;font-style:italic;margin-bottom:48px}
 .p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.p-card{text-align:center;transition:transform .4s}
-.p-card:hover{transform:translateY(-4px)}
+.p-card{text-align:center;transition:transform .4s}.p-card:hover{transform:translateY(-4px)}
 .p-card-img{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;margin-bottom:16px;background:#2A2A22}
-.p-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.p-card:hover .p-card-img img{transform:scale(1.04)}
-.p-card-img .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:52px}
+.p-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.p-card:hover .p-card-img img{transform:scale(1.04)}
 .p-card .name{font-family:var(--head);font-size:18px;color:#fff;margin-bottom:4px;font-weight:400}
 .p-card .desc{font-size:12px;color:rgba(255,255,255,.35);line-height:1.6}
 .p-formats{text-align:center;margin-top:40px;font-size:14px;color:rgba(255,255,255,.25);font-weight:300}
@@ -91,15 +130,14 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .comp-bv{background:var(--green);padding:40px;color:#fff}
 .comp-pk{background:#fff;padding:40px;border:1px solid rgba(0,0,0,.04)}
 .c-lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:22px}
-.comp-bv .c-lbl{color:var(--gold-l)}
-.comp-pk .c-lbl{color:#ccc}
+.comp-bv .c-lbl{color:var(--gold-l)}.comp-pk .c-lbl{color:#ccc}
 .c-row{padding:12px 0;font-size:14px;display:flex;align-items:center;gap:10px}
 .comp-bv .c-row{border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.8)}
 .comp-bv .ic{color:var(--gold-l)}
 .comp-pk .c-row{border-bottom:1px solid rgba(0,0,0,.03);color:#bbb}
 .comp-pk .ic{color:#ddd}
 
-/* ─── PHOTO BREAK (like La Lune bottom photo) ─── */
+/* ─── PHOTO BREAK ─── */
 .photo-break{height:50vh;min-height:320px;position:relative;overflow:hidden}
 .photo-break img{width:100%;height:100%;object-fit:cover}
 .photo-break .overlay{position:absolute;inset:0;background:linear-gradient(rgba(28,28,24,.2),rgba(28,28,24,.5));display:flex;align-items:center;justify-content:center}
@@ -118,7 +156,6 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .f-quote{font-family:var(--head);font-size:15px;color:#aaa;font-style:italic;line-height:1.8;border-top:1px solid rgba(0,0,0,.05);padding-top:18px}
 .f-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:linear-gradient(135deg,#E8E4DA,#D8D4CA)}
 .f-img img{width:100%;height:100%;object-fit:cover}
-.f-img .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:56px;color:rgba(0,0,0,.06);font-style:italic}
 
 /* ─── LOCATIONS ─── */
 .locations{background:#fff;padding:100px 40px}
@@ -154,9 +191,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .img-ph .ph-label{font-size:11px;font-weight:700;color:rgba(0,0,0,.25);text-transform:uppercase;letter-spacing:1px;text-align:center;padding:0 8px}
 .img-ph .ph-file{font-size:10px;font-weight:600;color:rgba(0,0,0,.15);font-family:monospace;background:rgba(0,0,0,.04);padding:2px 8px;border-radius:4px;margin-top:2px}
 .img-ph.dark{border-color:rgba(255,255,255,.1);background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.02) 10px,rgba(255,255,255,.02) 20px)}
-.img-ph.dark .ph-icon{filter:invert(1)}
-.img-ph.dark .ph-label{color:rgba(255,255,255,.2)}
-.img-ph.dark .ph-file{color:rgba(255,255,255,.15);background:rgba(255,255,255,.04)}
+.img-ph.dark .ph-icon{filter:invert(1)}.img-ph.dark .ph-label{color:rgba(255,255,255,.2)}.img-ph.dark .ph-file{color:rgba(255,255,255,.15);background:rgba(255,255,255,.04)}
 
 /* ─── VM ─── */
 .vm{background:var(--dark);padding:100px 40px}
@@ -168,7 +203,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .vm-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-l);font-weight:600;margin-bottom:12px}
 .vm-text{font-size:14px;line-height:1.9;color:rgba(255,255,255,.45)}
 
-/* ─── CONTACT (like La Lune "See You Soon") ─── */
+/* ─── CONTACT ─── */
 .contact{display:grid;grid-template-columns:1fr 1fr}
 .contact-photo{background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#3A5A1A,#2A3A10);min-height:400px;position:relative}
 .contact-photo::after{content:'';position:absolute;inset:0;background:rgba(74,107,26,.3)}
@@ -177,40 +212,40 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .contact-title{font-family:var(--head);font-size:clamp(28px,3.5vw,38px);font-weight:400;font-style:italic;margin-bottom:28px}
 .c-item{margin-bottom:18px}
 .c-item .cl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb;margin-bottom:3px;font-weight:600}
-.c-item a{font-size:16px;color:var(--dark);font-weight:600;transition:color .3s}
-.c-item a:hover{color:var(--green)}
+.c-item a{font-size:16px;color:var(--dark);font-weight:600;transition:color .3s}.c-item a:hover{color:var(--green)}
 .socials{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .soc{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:600;padding:10px 20px;background:var(--green);color:#fff;transition:all .3s}
 .soc:hover{background:var(--gold);color:var(--dark)}
 
 /* ─── FOOTER ─── */
 footer{background:var(--dark);padding:40px;text-align:center}
-footer img{height:28px;width:auto;margin:0 auto 8px;filter:brightness(10);opacity:.1}
 footer .brand{font-family:var(--head);font-size:16px;color:rgba(255,255,255,.08);font-style:italic;letter-spacing:2px}
 footer .sub{font-size:11px;color:rgba(255,255,255,.04);margin:6px 0 14px}
 footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
 
+/* ─── RESPONSIVE ─── */
 @media(max-width:768px){
-  .intro{grid-template-columns:1fr;gap:32px;padding:60px 24px}
-  .intro-img{display:none}
+  .intro{grid-template-columns:1fr;gap:32px;padding:60px 24px}.intro-img{display:none}
   .p-grid{grid-template-columns:1fr 1fr}
   .founder{grid-template-columns:1fr;gap:28px;padding:60px 24px}
   .comp-grid,.vm-grid{grid-template-columns:1fr}
   .impact-grid{grid-template-columns:1fr}
-  .contact{grid-template-columns:1fr}
-  .contact-photo{min-height:250px}
-  .contact-info{padding:48px 32px}
-  .nav-links{display:none}
-  .loc-grid{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}.contact-photo{min-height:250px}.contact-info{padding:48px 32px}
+  .nav-links{display:none}.loc-grid{grid-template-columns:1fr}
 }
 @media(max-width:480px){.p-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
+<!-- ═══ NAV ═══ -->
 <nav class="nav" id="mainNav"><div class="nav-inner">
-  <div class="nav-left">
-    <img src="images/logo.png" alt="Bananavore" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="cursor:pointer" onerror="this.outerHTML='<span class=\'nav-brand\' onclick=\'window.scrollTo({top:0,behavior:&quot;smooth&quot;})\'>BANANAVORE</span>'">
+  <div class="nav-left" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="cursor:pointer">
+    <div class="nav-logo-wrap">
+      <img src="images/logo.png" alt="Bananavore" class="nav-logo" onerror="this.style.display='none'">
+      <div class="shine"></div>
+    </div>
+    <span class="nav-brand">BANANAVORE</span>
   </div>
   <div class="nav-links">
     <span class="nav-link" onclick="go('about')">About</span>
@@ -221,13 +256,13 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
   <span class="nav-cta" onclick="go('contact')">Partner With Us</span>
 </div></nav>
 
-<!-- HERO: Full-bleed food photo -->
+<!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-label">Plant-Based · Filipino-Inspired</div>
-    <h1>Wholesome goodness, the Filipino way.</h1>
+    <h1>What if the future of Filipino food is a rediscovery of what's been in our <em style="font-style:normal;color:var(--gold-l)">backyards</em> all along?</h1>
     <p class="hero-sub">The first plant-based luncheon meat crafted from banana pseudostems, peels & blossoms.</p>
     <div class="hero-btns">
       <button class="btn-h fill" onclick="go('products')">Explore Products</button>
@@ -237,7 +272,30 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
   <div class="hero-scroll"><span>Scroll</span><div></div></div>
 </section>
 
-<!-- INTRO: 2-col text + photos (like La Lune) -->
+<!-- ═══ SHOWCASE ═══ -->
+<section class="showcase">
+  <svg class="showcase-deco" style="top:10%;left:5%;width:120px" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#4A6B1A"/></svg>
+  <svg class="showcase-deco" style="bottom:8%;right:4%;width:100px;transform:scaleX(-1) rotate(15deg)" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#4A6B1A"/></svg>
+  <div class="showcase-wrap rv">
+    <svg style="position:absolute;top:-160px;left:-160px;width:320px;height:320px;animation:spinSlow 60s linear infinite;opacity:.04" viewBox="0 0 320 320"><circle cx="160" cy="160" r="150" fill="none" stroke="#4A6B1A" stroke-width="1" stroke-dasharray="8 12"/></svg>
+    <svg style="position:absolute;top:-200px;left:-200px;width:400px;height:400px;animation:spinSlow 80s linear infinite reverse;opacity:.03" viewBox="0 0 400 400"><circle cx="200" cy="200" r="190" fill="none" stroke="#C89B2A" stroke-width="1" stroke-dasharray="6 16"/></svg>
+    <div class="showcase-ring">
+      <div class="orb" style="animation:orb1 18s linear infinite"><svg width="28" height="44" viewBox="0 0 28 44" fill="none" style="opacity:.25"><path d="M14 2C14 2 4 10 2 20C0 30 4 38 14 42C24 38 28 30 26 20C24 10 14 2 14 2Z" fill="#4A6B1A"/></svg></div>
+      <div class="orb" style="animation:orb2 22s linear infinite"><svg width="20" height="50" viewBox="0 0 20 50" fill="none" style="opacity:.2"><path d="M10 2C8 2 4 8 3 18C2 28 3 38 6 44C7 47 9 49 10 49C11 49 12 46 11 42C10 34 9 20 11 12C12 6 11 2 10 2Z" fill="#C89B2A"/></svg></div>
+      <div class="orb" style="animation:orb3 15s linear infinite"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="opacity:.15"><circle cx="12" cy="12" r="10" fill="#4A6B1A"/></svg></div>
+    </div>
+    <svg style="position:absolute;top:8%;left:12%;opacity:.06;animation:bobSlow 5s ease-in-out infinite" width="8" height="8"><circle cx="4" cy="4" r="4" fill="#C89B2A"/></svg>
+    <svg style="position:absolute;top:18%;right:15%;opacity:.05;animation:bobSlow 6s ease-in-out 1s infinite" width="6" height="6"><circle cx="3" cy="3" r="3" fill="#4A6B1A"/></svg>
+    <svg style="position:absolute;bottom:20%;left:10%;opacity:.04;animation:bobSlow 7s ease-in-out 2s infinite" width="10" height="10"><circle cx="5" cy="5" r="5" fill="#C89B2A"/></svg>
+    <svg style="position:absolute;bottom:15%;right:12%;opacity:.06;animation:bobSlow 5.5s ease-in-out .5s infinite" width="7" height="7"><circle cx="3.5" cy="3.5" r="3.5" fill="#4A6B1A"/></svg>
+    <div class="showcase-badge" style="top:5%;right:2%;animation:bobSlow 5s ease-in-out infinite"><div class="dot" style="background:#4A6B1A"></div>100% Plant-Based</div>
+    <div class="showcase-badge" style="bottom:12%;left:0%;animation:bobSlow 6s ease-in-out 1.5s infinite"><div class="dot" style="background:#C89B2A"></div>Zero Cholesterol</div>
+    <img src="images/sandwich.png" alt="Bananavore luncheon meat sandwich" class="showcase-img" onerror="this.outerHTML='<div class=\'img-ph\' style=\'width:280px;height:280px;border-radius:50%\'><div class=\'ph-icon\'>🥪</div><div class=\'ph-label\'>Sandwich photo</div><div class=\'ph-file\'>sandwich.png</div></div>'">
+  </div>
+  <div class="showcase-text rv"><p>Fuel your day, the <em>plant-based</em> way.</p></div>
+</section>
+
+<!-- ═══ INTRO ═══ -->
 <section class="intro" id="about">
   <div class="intro-img rv">
     <div class="intro-img-box tall"><img src="images/hero.jpg" alt="Bananavore rice bowl" onerror="this.outerHTML='<div class=\'img-ph\'><div class=\'ph-icon\'>🍚</div><div class=\'ph-label\'>Hero food photo</div><div class=\'ph-file\'>hero.jpg</div></div>'"></div>
@@ -246,29 +304,27 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
   </div>
   <div class="rv" style="transition-delay:.1s">
     <div class="intro-title">Hello! We're <em>Bananavore.</em></div>
-    <p><strong>Bananavore</strong> is an undergraduate thesis startup developed by a BS Agribusiness Management student from <strong>UP Los Baños</strong>.</p>
+    <p><strong>Bananavore</strong> is a passion-driven venture developed by a BS Agribusiness Management student from <strong>UP Los Baños</strong>.</p>
     <p>We celebrate the full potential of the banana plant by crafting luncheon meat from <strong>pseudostems, blossoms, and peels</strong> — parts that are often discarded but naturally <strong>nutritious</strong> and full of flavor.</p>
     <p>By choosing Bananavore, you support Filipino farmers, embrace nutritious eating, and enjoy a proudly local plant-based meal.</p>
     <p class="intro-phil">Filipino-grown. Filipino-inspired.<br>Good for you. Good for the community.</p>
   </div>
 </section>
 
-<!-- PRODUCTS: Dark section with photo cards -->
-<section class="products" id="products">
-  <div class="products-inner">
-    <div class="products-label rv">What We Offer</div>
-    <div class="products-title rv">Four Flavors. Zero Compromise.</div>
-    <div class="p-grid">
-      <div class="p-card rv"><div class="p-card-img"><img src="images/product-hotspicy.jpg" alt="Hot N Spicy" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🌶️</div><div class=\'ph-label\'>Hot &amp; Spicy packaging</div><div class=\'ph-file\'>product-hotspicy.jpg</div></div>'"></div><div class="name">Hot 'N Spicy</div><div class="desc">Heat meets plant-based goodness.</div></div>
-      <div class="p-card rv" style="transition-delay:.08s"><div class="p-card-img"><img src="images/product-adobo.jpg" alt="Adobo" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🫕</div><div class=\'ph-label\'>Adobo packaging</div><div class=\'ph-file\'>product-adobo.jpg</div></div>'"></div><div class="name">Adobo</div><div class="desc">Tangy, garlicky, deeply savory.</div></div>
-      <div class="p-card rv" style="transition-delay:.16s"><div class="p-card-img"><img src="images/product-classic.jpg" alt="Classic" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🌿</div><div class=\'ph-label\'>Classic packaging</div><div class=\'ph-file\'>product-classic.jpg</div></div>'"></div><div class="name">Classic</div><div class="desc">Clean, savory everyday essential.</div></div>
-      <div class="p-card rv" style="transition-delay:.24s"><div class="p-card-img"><img src="images/product-sisig.jpg" alt="Sisig" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🔥</div><div class=\'ph-label\'>Sisig packaging</div><div class=\'ph-file\'>product-sisig.jpg</div></div>'"></div><div class="name">Sisig</div><div class="desc">Bold, citrusy, reimagined.</div></div>
-    </div>
-    <p class="p-formats rv">Available as <span>Family Pack (175g)</span>, <span>Quick Rice Meal</span>, or <span>Plant-Based Musubi</span></p>
+<!-- ═══ PRODUCTS ═══ -->
+<section class="products" id="products"><div class="products-inner">
+  <div class="products-label rv">What We Offer</div>
+  <div class="products-title rv">Four Flavors. Zero Compromise.</div>
+  <div class="p-grid">
+    <div class="p-card rv"><div class="p-card-img"><img src="images/product-hotspicy.jpg" alt="Hot N Spicy" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🌶️</div><div class=\'ph-label\'>Hot &amp; Spicy</div><div class=\'ph-file\'>product-hotspicy.jpg</div></div>'"></div><div class="name">Hot 'N Spicy</div><div class="desc">Heat meets plant-based goodness.</div></div>
+    <div class="p-card rv" style="transition-delay:.08s"><div class="p-card-img"><img src="images/product-adobo.jpg" alt="Adobo" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🫕</div><div class=\'ph-label\'>Adobo</div><div class=\'ph-file\'>product-adobo.jpg</div></div>'"></div><div class="name">Adobo</div><div class="desc">Tangy, garlicky, deeply savory.</div></div>
+    <div class="p-card rv" style="transition-delay:.16s"><div class="p-card-img"><img src="images/product-classic.jpg" alt="Classic" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🌿</div><div class=\'ph-label\'>Classic</div><div class=\'ph-file\'>product-classic.jpg</div></div>'"></div><div class="name">Classic</div><div class="desc">Clean, savory everyday essential.</div></div>
+    <div class="p-card rv" style="transition-delay:.24s"><div class="p-card-img"><img src="images/product-sisig.jpg" alt="Sisig" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🔥</div><div class=\'ph-label\'>Sisig</div><div class=\'ph-file\'>product-sisig.jpg</div></div>'"></div><div class="name">Sisig</div><div class="desc">Bold, citrusy, reimagined.</div></div>
   </div>
-</section>
+  <p class="p-formats rv">Get yours now! <span>Family Pack (175g)</span> or as a <span>Quick Rice Meal!</span></p>
+</div></section>
 
-<!-- COMPARISON -->
+<!-- ═══ COMPARISON ═══ -->
 <div class="comp-sec">
   <div class="comp-head rv"><div class="comp-label">Why Choose Us</div><div class="comp-title">The Better Choice</div></div>
   <div class="comp-grid rv">
@@ -277,13 +333,13 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
   </div>
 </div>
 
-<!-- PHOTO BREAK (like La Lune bottom banner) -->
+<!-- ═══ PHOTO BREAK ═══ -->
 <div class="photo-break">
   <img src="images/hero.jpg" alt="Bananavore" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#4A6B1A,#6B8F35)\'></div>'">
   <div class="overlay"><h2>Healthy, hearty meals await.</h2></div>
 </div>
 
-<!-- FOUNDER -->
+<!-- ═══ FOUNDER ═══ -->
 <section class="founder" id="founder">
   <div class="rv">
     <div class="f-label">Meet The Founder</div>
@@ -298,51 +354,47 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
     <p class="f-quote">"A university project fueled by curiosity became a mission — proving Filipino innovation can transform waste into something the world needs."</p>
   </div>
   <div class="rv" style="transition-delay:.12s">
-    <div class="f-img"><img src="images/founder.jpg" alt="Stefhanie Ann A. Gontiñas" onerror="this.outerHTML='<div class=\'img-ph\'><div class=\'ph-icon\'>👩‍🎓</div><div class=\'ph-label\'>Founder portrait photo</div><div class=\'ph-file\'>founder.jpg</div></div>'"></div>
+    <div class="f-img"><img src="images/founder.jpg" alt="Stefhanie Ann A. Gontiñas" onerror="this.outerHTML='<div class=\'img-ph\'><div class=\'ph-icon\'>👩‍🎓</div><div class=\'ph-label\'>Founder portrait</div><div class=\'ph-file\'>founder.jpg</div></div>'"></div>
   </div>
 </section>
 
-<!-- LOCATIONS -->
-<section class="locations" id="locations">
-  <div class="loc-inner">
-    <div class="loc-label rv">Where to Find Us</div>
-    <div class="loc-title rv">Grab your Bananavore treats.</div>
-    <div class="loc-grid">
-      <div class="loc-card rv"><div class="loc-name">📍 Meister's Uncorked</div><div class="loc-addr">Los Baños, Laguna</div><div class="loc-hrs">Sun 7AM–12NN · Mon 5PM–10PM</div></div>
-      <div class="loc-card rv" style="transition-delay:.04s"><div class="loc-name">📍 Cel's Restaurant Demarces</div><div class="loc-addr">Los Baños, Laguna</div></div>
-      <div class="loc-card rv" style="transition-delay:.08s"><div class="loc-name">📍 Cel's Restaurant La Ville</div><div class="loc-addr">UPLB, Los Baños</div></div>
-      <div class="loc-card rv" style="transition-delay:.12s"><div class="loc-name">📍 Uela Cafe Botique</div><div class="loc-addr">Los Baños, Laguna</div></div>
-      <div class="loc-card rv" style="transition-delay:.16s"><div class="loc-name">📍 Cantina Hija</div><div class="loc-addr">Westbrook Residences</div></div>
-      <div class="loc-card rv" style="transition-delay:.2s"><div class="loc-name">📍 Kenyah Cafe</div><div class="loc-addr">Calaca City, Batangas</div></div>
-      <div class="loc-card rv" style="transition-delay:.24s"><div class="loc-name">📍 Papaloy's Food Kiosk</div><div class="loc-addr">IBS Wing A, UPLB</div></div>
-      <div class="loc-card rv" style="transition-delay:.28s"><div class="loc-name">📍 Simot Sarap Eatery</div><div class="loc-addr">CEAT Lounge, UPLB</div></div>
-    </div>
+<!-- ═══ LOCATIONS ═══ -->
+<section class="locations" id="locations"><div class="loc-inner">
+  <div class="loc-label rv">Where to Find Us</div>
+  <div class="loc-title rv">Grab your Bananavore treats.</div>
+  <div class="loc-grid">
+    <div class="loc-card rv"><div class="loc-name">📍 Meister's Uncorked</div><div class="loc-addr">Los Baños, Laguna</div><div class="loc-hrs">Sun 7AM–12NN · Mon 5PM–10PM</div></div>
+    <div class="loc-card rv" style="transition-delay:.04s"><div class="loc-name">📍 Cel's Restaurant Demarces</div><div class="loc-addr">Los Baños, Laguna</div></div>
+    <div class="loc-card rv" style="transition-delay:.08s"><div class="loc-name">📍 Cel's Restaurant La Ville</div><div class="loc-addr">UPLB, Los Baños</div></div>
+    <div class="loc-card rv" style="transition-delay:.12s"><div class="loc-name">📍 Uela Cafe Botique</div><div class="loc-addr">Los Baños, Laguna</div></div>
+    <div class="loc-card rv" style="transition-delay:.16s"><div class="loc-name">📍 Cantina Hija</div><div class="loc-addr">Westbrook Residences</div></div>
+    <div class="loc-card rv" style="transition-delay:.2s"><div class="loc-name">📍 Kenyah Cafe</div><div class="loc-addr">Calaca City, Batangas</div></div>
+    <div class="loc-card rv" style="transition-delay:.24s"><div class="loc-name">📍 Papaloy's Food Kiosk</div><div class="loc-addr">IBS Wing A, UPLB</div></div>
+    <div class="loc-card rv" style="transition-delay:.28s"><div class="loc-name">📍 Simot Sarap Eatery</div><div class="loc-addr">CEAT Lounge, UPLB</div></div>
   </div>
-</section>
+</div></section>
 
-<!-- IMPACT -->
-<section class="impact" id="impact">
-  <div class="impact-inner">
-    <div class="impact-head rv"><div class="comp-label">Community Impact</div><div class="comp-title">More Than Food</div></div>
-    <div class="impact-grid">
-      <div class="i-card rv"><div class="em">🌱</div><div class="t">Reduces Waste</div><p>Transforms discarded banana parts into nutritious food.</p></div>
-      <div class="i-card rv" style="transition-delay:.08s"><div class="em">👨‍🌾</div><div class="t">Supports Farmers</div><p>Fair sourcing creates new income streams.</p></div>
-      <div class="i-card rv" style="transition-delay:.16s"><div class="em">🇵🇭</div><div class="t">Proudly Filipino</div><p>Local ingredients, local flavors, local change.</p></div>
-    </div>
-    <div class="comm rv">Bananavore supports <strong>donation initiatives</strong> providing plant-based meals to <strong>children, senior citizens, and persons with disabilities</strong>.</div>
-    <div class="sdgs rv">
-      <div class="sdg"><span style="color:#DDA63A">SDG 2</span><span style="color:#aaa">Zero Hunger</span></div>
-      <div class="sdg"><span style="color:#4C9F38">SDG 3</span><span style="color:#aaa">Good Health</span></div>
-      <div class="sdg"><span style="color:#C5192D">SDG 4</span><span style="color:#aaa">Education</span></div>
-      <div class="sdg"><span style="color:#FF3A21">SDG 5</span><span style="color:#aaa">Gender Equality</span></div>
-      <div class="sdg"><span style="color:#A21942">SDG 8</span><span style="color:#aaa">Decent Work</span></div>
-      <div class="sdg"><span style="color:#BF8B2E">SDG 12</span><span style="color:#aaa">Responsible Consumption</span></div>
-      <div class="sdg"><span style="color:#3F7E44">SDG 13</span><span style="color:#aaa">Climate Action</span></div>
-    </div>
+<!-- ═══ IMPACT ═══ -->
+<section class="impact" id="impact"><div class="impact-inner">
+  <div class="impact-head rv"><div class="comp-label">Community Impact</div><div class="comp-title">More Than Food</div></div>
+  <div class="impact-grid">
+    <div class="i-card rv"><div class="em">🌱</div><div class="t">Reduces Waste</div><p>Transforms discarded banana parts into nutritious food.</p></div>
+    <div class="i-card rv" style="transition-delay:.08s"><div class="em">👨‍🌾</div><div class="t">Supports Farmers</div><p>Fair sourcing creates new income streams.</p></div>
+    <div class="i-card rv" style="transition-delay:.16s"><div class="em">🇵🇭</div><div class="t">Proudly Filipino</div><p>Local ingredients, local flavors, local change.</p></div>
   </div>
-</section>
+  <div class="comm rv">Bananavore supports <strong>donation initiatives</strong> providing plant-based meals to <strong>children, senior citizens, and persons with disabilities</strong>.</div>
+  <div class="sdgs rv">
+    <div class="sdg"><span style="color:#DDA63A">SDG 2</span><span style="color:#aaa">Zero Hunger</span></div>
+    <div class="sdg"><span style="color:#4C9F38">SDG 3</span><span style="color:#aaa">Good Health</span></div>
+    <div class="sdg"><span style="color:#C5192D">SDG 4</span><span style="color:#aaa">Education</span></div>
+    <div class="sdg"><span style="color:#FF3A21">SDG 5</span><span style="color:#aaa">Gender Equality</span></div>
+    <div class="sdg"><span style="color:#A21942">SDG 8</span><span style="color:#aaa">Decent Work</span></div>
+    <div class="sdg"><span style="color:#BF8B2E">SDG 12</span><span style="color:#aaa">Responsible Consumption</span></div>
+    <div class="sdg"><span style="color:#3F7E44">SDG 13</span><span style="color:#aaa">Climate Action</span></div>
+  </div>
+</div></section>
 
-<!-- VM -->
+<!-- ═══ VM ═══ -->
 <section class="vm"><div class="vm-inner">
   <div class="vm-label rv">Our Purpose</div>
   <div class="vm-title rv">Driven by Mission</div>
@@ -352,7 +404,7 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
   </div>
 </div></section>
 
-<!-- CONTACT: Photo + info split (like La Lune) -->
+<!-- ═══ CONTACT ═══ -->
 <section class="contact" id="contact">
   <div class="contact-photo"></div>
   <div class="contact-info">
@@ -367,7 +419,6 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
 </section>
 
 <footer>
-  <img src="images/logo.png" alt="Bananavore" onerror="this.style.display='none'">
   <div class="brand">Bananavore</div>
   <p class="sub">Fuel Your Day, The Plant-Based Way.</p>
   <p class="copy">© 2025 Bananavore</p>
@@ -375,10 +426,22 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
 
 <script>
 function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
-const nav=document.getElementById('mainNav');
-if(nav)window.addEventListener('scroll',()=>{nav.classList.toggle('solid',window.scrollY>80)},{passive:true});
-const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('vis');obs.unobserve(el.target)}})},{threshold:.06});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+/* Nav: scroll state + logo glow control */
+var nav=document.getElementById('mainNav');
+var logo=document.querySelector('.nav-logo');
+window.addEventListener('scroll',function(){
+  var s=window.scrollY>80;
+  nav.classList.toggle('solid',s);
+  if(logo){
+    if(s){logo.style.animation='none';logo.style.filter='brightness(10)'}
+    else{logo.style.animation='glowBreath 3s ease-in-out infinite'}
+  }
+},{passive:true});
+
+/* Scroll reveal */
+var obs=new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting){el.target.classList.add('vis');obs.unobserve(el.target)}})},{threshold:.06});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
 </script>
 </body>
 </html>
