@@ -70,7 +70,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 /* ─── HERO ─── */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
 .hero-bg{position:absolute;inset:0;background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#375206,#1a2903)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.5) 100%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.65) 100%)}
 .hero-content{position:relative;z-index:2;max-width:680px;padding:0 32px}
 .hero-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px;font-weight:500}
 .hero h1{font-family:var(--head);font-size:clamp(32px,7vw,72px);color:#fff;font-weight:400;line-height:1.12;margin-bottom:20px;font-style:italic}
@@ -140,9 +140,15 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .products-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:10px;font-weight:500}
 .products-title{font-family:var(--head);font-size:clamp(24px,4vw,44px);color:#fff;text-align:center;font-weight:400;font-style:italic;margin-bottom:48px}
 .p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.p-card{text-align:center;transition:transform .4s}.p-card:hover{transform:translateY(-4px)}
-.p-card-img{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;margin-bottom:16px;background:#2A2A22}
-.p-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.p-card:hover .p-card-img img{transform:scale(1.04)}
+.p-card{text-align:center;transition:transform .4s;position:relative;overflow:visible}
+.p-card:hover{transform:translateY(-6px)}
+.p-card-img{position:relative;margin-bottom:-20px;display:flex;align-items:flex-end;justify-content:center;padding:0;z-index:2}
+.p-card-img::after{content:'';position:absolute;bottom:-5px;left:10%;right:10%;height:30%;border-radius:50%;background:radial-gradient(ellipse,rgba(245,168,8,.15) 0%,transparent 70%);filter:blur(12px);pointer-events:none;transition:all .4s}
+.p-card:hover .p-card-img::after{background:radial-gradient(ellipse,rgba(245,168,8,.25) 0%,transparent 70%);filter:blur(16px)}
+.p-card-img img{width:130%;max-width:130%;height:auto;object-fit:contain;filter:drop-shadow(0 8px 20px rgba(0,0,0,.3));transition:all .5s}
+.p-card:hover .p-card-img img{transform:scale(1.06);filter:drop-shadow(0 12px 28px rgba(0,0,0,.4))}
+.p-card-info{background:rgba(255,255,255,.06);backdrop-filter:blur(8px);border-radius:var(--r);padding:28px 12px 16px;border:1px solid rgba(255,255,255,.06);transition:all .4s;position:relative;z-index:1}
+.p-card:hover .p-card-info{background:rgba(255,255,255,.1);border-color:rgba(245,168,8,.15)}
 .p-card .name{font-family:var(--head);font-size:18px;color:#fff;margin-bottom:4px;font-weight:400}
 .p-card .desc{font-size:12px;color:rgba(255,255,255,.35);line-height:1.6}
 .p-formats{text-align:center;margin-top:40px;font-size:14px;color:rgba(255,255,255,.25);font-weight:300}
@@ -231,7 +237,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 
 /* ─── CONTACT ─── */
 .contact{display:grid;grid-template-columns:1fr 1fr}
-.contact-photo{background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#375206,#1a2903);min-height:400px;position:relative}
+.contact-photo{background:url('images/hero3.jpg') center/cover no-repeat,linear-gradient(135deg,#375206,#1a2903);min-height:400px;position:relative}
 .contact-photo::after{content:'';position:absolute;inset:0;background:rgba(55,82,6,.25)}
 .contact-info{background:#fff;padding:80px 56px;display:flex;flex-direction:column;justify-content:center}
 .contact-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--green-l);font-weight:500;margin-bottom:8px}
@@ -437,10 +443,10 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
   <div class="products-label rv">What We Offer</div>
   <div class="products-title rv">Four Flavors. Zero Compromise.</div>
   <div class="p-grid">
-    <div class="p-card rv"><div class="p-card-img"><img src="images/product-hotspicy.jpg" alt="Hot N Spicy" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🌶️</div><div class=\'ph-label\'>Hot &amp; Spicy</div><div class=\'ph-file\'>product-hotspicy.jpg</div></div>'"></div><div class="name">Hot 'N Spicy</div><div class="desc">Heat meets plant-based goodness.</div></div>
-    <div class="p-card rv" style="transition-delay:.08s"><div class="p-card-img"><img src="images/product-adobo.jpg" alt="Adobo" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🫕</div><div class=\'ph-label\'>Adobo</div><div class=\'ph-file\'>product-adobo.jpg</div></div>'"></div><div class="name">Adobo</div><div class="desc">Tangy, garlicky, deeply savory.</div></div>
-    <div class="p-card rv" style="transition-delay:.16s"><div class="p-card-img"><img src="images/product-classic.jpg" alt="Classic" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🌿</div><div class=\'ph-label\'>Classic</div><div class=\'ph-file\'>product-classic.jpg</div></div>'"></div><div class="name">Classic</div><div class="desc">Clean, savory everyday essential.</div></div>
-    <div class="p-card rv" style="transition-delay:.24s"><div class="p-card-img"><img src="images/product-sisig.jpg" alt="Sisig" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🔥</div><div class=\'ph-label\'>Sisig</div><div class=\'ph-file\'>product-sisig.jpg</div></div>'"></div><div class="name">Sisig</div><div class="desc">Bold, citrusy, reimagined.</div></div>
+    <div class="p-card rv"><div class="p-card-img"><img src="images/product-hotspicy.png" alt="Hot N Spicy" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🌶️</div><div class=\'ph-label\'>Hot &amp; Spicy</div><div class=\'ph-file\'>product-hotspicy.png</div></div>'"></div><div class="p-card-info"><div class="name">Hot 'N Spicy</div><div class="desc">Heat meets plant-based goodness.</div></div></div>
+    <div class="p-card rv" style="transition-delay:.08s"><div class="p-card-img"><img src="images/product-adobo.png" alt="Adobo" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🫕</div><div class=\'ph-label\'>Adobo</div><div class=\'ph-file\'>product-adobo.png</div></div>'"></div><div class="p-card-info"><div class="name">Adobo</div><div class="desc">Tangy, garlicky, deeply savory.</div></div></div>
+    <div class="p-card rv" style="transition-delay:.16s"><div class="p-card-img"><img src="images/product-classic.png" alt="Classic" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🌿</div><div class=\'ph-label\'>Classic</div><div class=\'ph-file\'>product-classic.png</div></div>'"></div><div class="p-card-info"><div class="name">Classic</div><div class="desc">Clean, savory everyday essential.</div></div></div>
+    <div class="p-card rv" style="transition-delay:.24s"><div class="p-card-img"><img src="images/product-sisig.png" alt="Sisig" onerror="this.outerHTML='<div class=\'img-ph dark\'><div class=\'ph-icon\'>🔥</div><div class=\'ph-label\'>Sisig</div><div class=\'ph-file\'>product-sisig.png</div></div>'"></div><div class="p-card-info"><div class="name">Sisig</div><div class="desc">Bold, citrusy, reimagined.</div></div></div>
   </div>
   <p class="p-formats rv">Get yours now! <span>Family Pack (175g)</span> or as a <span>Quick Rice Meal!</span></p>
 </div></section>
