@@ -21,9 +21,9 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 
 :root{
 --head:'Playfair Display',Georgia,serif;
---green:#4A6B1A;--green-l:#6B8F35;
---gold:#C89B2A;--gold-l:#E8B84A;
---terra:#B84422;--cream:#FAF8F3;--dark:#1C1C18;
+--green:#375206;--green-l:#808a5f;
+--gold:#f5a808;--gold-l:#f7c03a;
+--terra:#d13e08;--cream:#FAF8F3;--dark:#000000;
 --r:8px;
 }
 
@@ -31,8 +31,8 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 
 /* ─── Nav logo glow ─── */
 @keyframes glowBreath{
-  0%,100%{filter:brightness(10) drop-shadow(0 0 4px rgba(232,184,74,.1))}
-  50%{filter:brightness(10) drop-shadow(0 0 14px rgba(232,184,74,.4)) drop-shadow(0 0 30px rgba(255,255,255,.12))}
+  0%,100%{filter:brightness(10) drop-shadow(0 0 4px rgba(245,168,8,.1))}
+  50%{filter:brightness(10) drop-shadow(0 0 14px rgba(245,168,8,.4)) drop-shadow(0 0 30px rgba(255,255,255,.12))}
 }
 @keyframes shineSweep{0%{left:-60%;opacity:0}20%{opacity:1}100%{left:120%;opacity:0}}
 
@@ -68,7 +68,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 
 /* ─── HERO ─── */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
-.hero-bg{position:absolute;inset:0;background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#3A5A1A,#2A3A10)}
+.hero-bg{position:absolute;inset:0;background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#375206,#1a2903)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,24,.35) 0%,rgba(28,28,24,.65) 100%)}
 .hero-content{position:relative;z-index:2;max-width:680px;padding:0 32px}
 .hero-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px;font-weight:500}
@@ -109,10 +109,8 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .intro p{font-size:15px;color:#888;line-height:2;margin-bottom:14px}
 .intro strong{color:var(--green);font-weight:600}
 .intro-phil{font-family:var(--head);font-size:16px;color:var(--green);font-style:italic;margin-top:20px}
-.intro-img{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.intro-img-box{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:#E8E4DA}
-.intro-img-box img{width:100%;height:100%;object-fit:cover}
-.intro-img-box.tall{grid-row:1/3}
+.intro-img{border-radius:var(--r);overflow:hidden;background:#E8E4DA}
+.intro-img img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* ─── PRODUCTS ─── */
 .products{background:var(--dark);padding:100px 40px}
@@ -210,8 +208,8 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 
 /* ─── CONTACT ─── */
 .contact{display:grid;grid-template-columns:1fr 1fr}
-.contact-photo{background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#3A5A1A,#2A3A10);min-height:400px;position:relative}
-.contact-photo::after{content:'';position:absolute;inset:0;background:rgba(74,107,26,.3)}
+.contact-photo{background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#375206,#1a2903);min-height:400px;position:relative}
+.contact-photo::after{content:'';position:absolute;inset:0;background:rgba(55,82,6,.3)}
 .contact-info{background:#fff;padding:80px 56px;display:flex;flex-direction:column;justify-content:center}
 .contact-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--green-l);font-weight:500;margin-bottom:8px}
 .contact-title{font-family:var(--head);font-size:clamp(24px,3.5vw,38px);font-weight:400;font-style:italic;margin-bottom:28px}
@@ -224,9 +222,9 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 
 /* ─── FOOTER ─── */
 footer{background:var(--dark);padding:40px;text-align:center}
-footer .brand{font-family:var(--head);font-size:16px;color:rgba(255,255,255,.08);font-style:italic;letter-spacing:2px}
-footer .sub{font-size:11px;color:rgba(255,255,255,.04);margin:6px 0 14px}
-footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
+footer .brand{font-family:var(--head);font-size:16px;color:rgba(255,255,255,.35);font-style:italic;letter-spacing:2px}
+footer .sub{font-size:11px;color:rgba(255,255,255,.2);margin:6px 0 14px}
+footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
 
 /* ═══════════════════════════════════════ */
 /* ─── RESPONSIVE: TABLET ─── */
@@ -346,22 +344,22 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
 
 <!-- ═══ SHOWCASE ═══ -->
 <section class="showcase">
-  <svg class="showcase-deco" style="top:10%;left:5%;width:120px" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#4A6B1A"/></svg>
-  <svg class="showcase-deco" style="bottom:8%;right:4%;width:100px;transform:scaleX(-1) rotate(15deg)" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#4A6B1A"/></svg>
+  <svg class="showcase-deco" style="top:10%;left:5%;width:120px" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#375206"/></svg>
+  <svg class="showcase-deco" style="bottom:8%;right:4%;width:100px;transform:scaleX(-1) rotate(15deg)" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#375206"/></svg>
   <div class="showcase-wrap rv">
-    <svg style="position:absolute;top:-160px;left:-160px;width:320px;height:320px;animation:spinSlow 60s linear infinite;opacity:.04" viewBox="0 0 320 320"><circle cx="160" cy="160" r="150" fill="none" stroke="#4A6B1A" stroke-width="1" stroke-dasharray="8 12"/></svg>
-    <svg style="position:absolute;top:-200px;left:-200px;width:400px;height:400px;animation:spinSlow 80s linear infinite reverse;opacity:.03" viewBox="0 0 400 400"><circle cx="200" cy="200" r="190" fill="none" stroke="#C89B2A" stroke-width="1" stroke-dasharray="6 16"/></svg>
+    <svg style="position:absolute;top:-160px;left:-160px;width:320px;height:320px;animation:spinSlow 60s linear infinite;opacity:.04" viewBox="0 0 320 320"><circle cx="160" cy="160" r="150" fill="none" stroke="#375206" stroke-width="1" stroke-dasharray="8 12"/></svg>
+    <svg style="position:absolute;top:-200px;left:-200px;width:400px;height:400px;animation:spinSlow 80s linear infinite reverse;opacity:.03" viewBox="0 0 400 400"><circle cx="200" cy="200" r="190" fill="none" stroke="#f5a808" stroke-width="1" stroke-dasharray="6 16"/></svg>
     <div class="showcase-ring">
-      <div class="orb" style="animation:orb1 18s linear infinite"><svg width="28" height="44" viewBox="0 0 28 44" fill="none" style="opacity:.25"><path d="M14 2C14 2 4 10 2 20C0 30 4 38 14 42C24 38 28 30 26 20C24 10 14 2 14 2Z" fill="#4A6B1A"/></svg></div>
-      <div class="orb" style="animation:orb2 22s linear infinite"><svg width="20" height="50" viewBox="0 0 20 50" fill="none" style="opacity:.2"><path d="M10 2C8 2 4 8 3 18C2 28 3 38 6 44C7 47 9 49 10 49C11 49 12 46 11 42C10 34 9 20 11 12C12 6 11 2 10 2Z" fill="#C89B2A"/></svg></div>
-      <div class="orb" style="animation:orb3 15s linear infinite"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="opacity:.15"><circle cx="12" cy="12" r="10" fill="#4A6B1A"/></svg></div>
+      <div class="orb" style="animation:orb1 18s linear infinite"><svg width="28" height="44" viewBox="0 0 28 44" fill="none" style="opacity:.25"><path d="M14 2C14 2 4 10 2 20C0 30 4 38 14 42C24 38 28 30 26 20C24 10 14 2 14 2Z" fill="#375206"/></svg></div>
+      <div class="orb" style="animation:orb2 22s linear infinite"><svg width="20" height="50" viewBox="0 0 20 50" fill="none" style="opacity:.2"><path d="M10 2C8 2 4 8 3 18C2 28 3 38 6 44C7 47 9 49 10 49C11 49 12 46 11 42C10 34 9 20 11 12C12 6 11 2 10 2Z" fill="#f5a808"/></svg></div>
+      <div class="orb" style="animation:orb3 15s linear infinite"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="opacity:.15"><circle cx="12" cy="12" r="10" fill="#375206"/></svg></div>
     </div>
-    <svg style="position:absolute;top:8%;left:12%;opacity:.06;animation:bobSlow 5s ease-in-out infinite" width="8" height="8"><circle cx="4" cy="4" r="4" fill="#C89B2A"/></svg>
-    <svg style="position:absolute;top:18%;right:15%;opacity:.05;animation:bobSlow 6s ease-in-out 1s infinite" width="6" height="6"><circle cx="3" cy="3" r="3" fill="#4A6B1A"/></svg>
-    <svg style="position:absolute;bottom:20%;left:10%;opacity:.04;animation:bobSlow 7s ease-in-out 2s infinite" width="10" height="10"><circle cx="5" cy="5" r="5" fill="#C89B2A"/></svg>
-    <svg style="position:absolute;bottom:15%;right:12%;opacity:.06;animation:bobSlow 5.5s ease-in-out .5s infinite" width="7" height="7"><circle cx="3.5" cy="3.5" r="3.5" fill="#4A6B1A"/></svg>
-    <div class="showcase-badge" style="top:5%;right:2%;animation:bobSlow 5s ease-in-out infinite"><div class="dot" style="background:#4A6B1A"></div>100% Plant-Based</div>
-    <div class="showcase-badge" style="bottom:12%;left:0%;animation:bobSlow 6s ease-in-out 1.5s infinite"><div class="dot" style="background:#C89B2A"></div>Zero Cholesterol</div>
+    <svg style="position:absolute;top:8%;left:12%;opacity:.06;animation:bobSlow 5s ease-in-out infinite" width="8" height="8"><circle cx="4" cy="4" r="4" fill="#f5a808"/></svg>
+    <svg style="position:absolute;top:18%;right:15%;opacity:.05;animation:bobSlow 6s ease-in-out 1s infinite" width="6" height="6"><circle cx="3" cy="3" r="3" fill="#375206"/></svg>
+    <svg style="position:absolute;bottom:20%;left:10%;opacity:.04;animation:bobSlow 7s ease-in-out 2s infinite" width="10" height="10"><circle cx="5" cy="5" r="5" fill="#f5a808"/></svg>
+    <svg style="position:absolute;bottom:15%;right:12%;opacity:.06;animation:bobSlow 5.5s ease-in-out .5s infinite" width="7" height="7"><circle cx="3.5" cy="3.5" r="3.5" fill="#375206"/></svg>
+    <div class="showcase-badge" style="top:5%;right:2%;animation:bobSlow 5s ease-in-out infinite"><div class="dot" style="background:#375206"></div>100% Plant-Based</div>
+    <div class="showcase-badge" style="bottom:12%;left:0%;animation:bobSlow 6s ease-in-out 1.5s infinite"><div class="dot" style="background:#f5a808"></div>Zero Cholesterol</div>
     <img src="images/sandwich.png" alt="Bananavore luncheon meat sandwich" class="showcase-img" onerror="this.outerHTML='<div class=\'img-ph\' style=\'width:280px;height:280px;border-radius:50%\'><div class=\'ph-icon\'>🥪</div><div class=\'ph-label\'>Sandwich photo</div><div class=\'ph-file\'>sandwich.png</div></div>'">
   </div>
   <div class="showcase-text rv"><p>Fuel your day, the <em>plant-based</em> way.</p></div>
@@ -370,9 +368,7 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
 <!-- ═══ INTRO ═══ -->
 <section class="intro" id="about">
   <div class="intro-img rv">
-    <div class="intro-img-box tall"><img src="images/hero.jpg" alt="Bananavore rice bowl" onerror="this.outerHTML='<div class=\'img-ph\'><div class=\'ph-icon\'>🍚</div><div class=\'ph-label\'>Hero food photo</div><div class=\'ph-file\'>hero.jpg</div></div>'"></div>
-    <div class="intro-img-box"><img src="images/product-classic.jpg" alt="Classic" onerror="this.outerHTML='<div class=\'img-ph\'><div class=\'ph-icon\'>🌿</div><div class=\'ph-label\'>Classic product</div><div class=\'ph-file\'>product-classic.jpg</div></div>'"></div>
-    <div class="intro-img-box"><img src="images/product-adobo.jpg" alt="Adobo" onerror="this.outerHTML='<div class=\'img-ph\'><div class=\'ph-icon\'>🫕</div><div class=\'ph-label\'>Adobo product</div><div class=\'ph-file\'>product-adobo.jpg</div></div>'"></div>
+    <img src="images/hero.jpg" alt="Bananavore rice bowl" onerror="this.outerHTML='<div class=\'img-ph\' style=\'aspect-ratio:3/4\'><div class=\'ph-icon\'>🍚</div><div class=\'ph-label\'>Hero food photo</div><div class=\'ph-file\'>hero.jpg</div></div>'">
   </div>
   <div class="rv" style="transition-delay:.1s">
     <div class="intro-title">Hello! We're <em>Bananavore.</em></div>
@@ -407,7 +403,7 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.04)}
 
 <!-- ═══ PHOTO BREAK ═══ -->
 <div class="photo-break">
-  <img src="images/hero.jpg" alt="Bananavore" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#4A6B1A,#6B8F35)\'></div>'">
+  <img src="images/hero.jpg" alt="Bananavore" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#375206,#808a5f)\'></div>'">
   <div class="overlay"><h2>Healthy, hearty meals await.</h2></div>
 </div>
 
