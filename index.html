@@ -6,24 +6,24 @@
 <title>Bananavore — Plant-Based Filipino Luncheon Meat</title>
 <meta name="description" content="Plant-based luncheon meat crafted from banana pseudostems, peels & blossoms. Filipino-grown. Filipino-inspired.">
 <link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
-<link rel="apple-touch-icon" href="images/logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/logo.svg">
+<link rel="apple-touch-icon" href="images/logo.svg">
 <meta property="og:title" content="Bananavore — Fuel Your Day, The Plant-Based Way">
 <meta property="og:description" content="Plant-based luncheon meat crafted from banana pseudostems, peels & blossoms. Filipino-grown. Filipino-inspired.">
-<meta property="og:image" content="images/logo.png">
+<meta property="og:image" content="images/banner.png">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',system-ui,sans-serif;color:#2D2D2D;background:#FAF8F3;overflow-x:hidden}
+body{font-family:'DM Sans',system-ui,sans-serif;color:#2D2D2D;background:#fff;overflow-x:hidden}
 a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inherit}img{max-width:100%;display:block}
 
 :root{
 --head:'Playfair Display',Georgia,serif;
---green:#375206;--green-l:#808a5f;
+--green:#375206;--green-l:#5a7a2e;
 --gold:#f5a808;--gold-l:#f7c03a;
---terra:#d13e08;--cream:#FAF8F3;--dark:#000000;
+--cream:#FFFFFF;--dark:#375206;
 --r:8px;
 }
 
@@ -31,26 +31,27 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 
 /* ─── Nav logo glow ─── */
 @keyframes glowBreath{
-  0%,100%{filter:drop-shadow(0 0 4px rgba(245,168,8,.1))}
-  50%{filter:drop-shadow(0 0 12px rgba(245,168,8,.4)) drop-shadow(0 0 28px rgba(245,168,8,.15))}
+  0%,100%{filter:drop-shadow(0 0 3px rgba(255,255,255,.4)) drop-shadow(0 0 6px rgba(245,168,8,.15))}
+  50%{filter:drop-shadow(0 0 6px rgba(255,255,255,.5)) drop-shadow(0 0 14px rgba(245,168,8,.35)) drop-shadow(0 0 28px rgba(245,168,8,.12))}
 }
 @keyframes shineSweep{0%{left:-60%;opacity:0}20%{opacity:1}100%{left:120%;opacity:0}}
 
 /* ─── NAV ─── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .4s}
-.nav.solid{background:rgba(28,28,24,.95);backdrop-filter:blur(12px);padding:10px 0}
+.nav.solid{background:linear-gradient(180deg,rgba(90,122,46,.75),rgba(90,122,46,.55));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 0}
 .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
-.nav-left{display:flex;align-items:center;gap:10px;cursor:pointer}
+.nav-left{display:flex;align-items:center;gap:10px;cursor:pointer}.nav-brand{vertical-align:middle}
 .nav-logo-wrap{position:relative;display:inline-block;line-height:0}
-.nav-logo-wrap .shine{position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0;animation:shineSweep 1.2s ease .5s forwards}
 .nav-logo{height:42px;width:auto;animation:glowBreath 3s ease-in-out infinite;transition:all .6s}
-.nav.solid .nav-logo{animation:none;filter:none}
-.nav-brand{font-family:var(--head);font-size:18px;color:#fff;font-weight:700;letter-spacing:1px}
+.nav.solid .nav-logo{animation:none;filter:drop-shadow(0 0 2px rgba(255,255,255,.3))}
+.nav-logo-wrap .shine{position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0;animation:shineSweep 1.2s ease .5s forwards}
+.nav-brand{height:42px;width:auto;display:block;margin-top:-18px;filter:drop-shadow(0 0 3px rgba(255,255,255,.35));transition:all .4s}
+.nav.solid .nav-brand{filter:drop-shadow(0 0 2px rgba(255,255,255,.3))}
 .nav-links{display:flex;gap:32px}
 .nav-link{font-size:13px;color:rgba(255,255,255,.5);font-weight:400;cursor:pointer;transition:color .3s;letter-spacing:.5px}
 .nav-link:hover{color:#fff}
 .nav-cta{font-size:12px;font-weight:600;padding:10px 28px;border:1px solid rgba(255,255,255,.3);color:#fff;transition:all .3s;letter-spacing:.5px}
-.nav-cta:hover{background:#fff;color:var(--dark)}
+.nav-cta:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
 
 /* Hamburger */
 .nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
@@ -60,7 +61,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 /* Mobile fullscreen menu */
-.mob-menu{position:fixed;inset:0;background:rgba(28,28,24,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .35s}
+.mob-menu{position:fixed;inset:0;background:rgba(55,82,6,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .35s}
 .mob-menu.open{opacity:1;pointer-events:auto}
 .mob-menu a{font-family:var(--head);font-size:26px;color:#fff;font-weight:400;font-style:italic;cursor:pointer;transition:color .3s;-webkit-tap-highlight-color:transparent}
 .mob-menu a:hover,.mob-menu a:active{color:var(--gold-l)}
@@ -69,14 +70,14 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 /* ─── HERO ─── */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
 .hero-bg{position:absolute;inset:0;background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#375206,#1a2903)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,24,.35) 0%,rgba(28,28,24,.65) 100%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.5) 100%)}
 .hero-content{position:relative;z-index:2;max-width:680px;padding:0 32px}
 .hero-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px;font-weight:500}
 .hero h1{font-family:var(--head);font-size:clamp(32px,7vw,72px);color:#fff;font-weight:400;line-height:1.12;margin-bottom:20px;font-style:italic}
 .hero-sub{font-size:15px;color:rgba(255,255,255,.55);line-height:1.8;max-width:460px;margin:0 auto 36px;font-weight:300}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-h{padding:14px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s}
-.btn-h.fill{background:#fff;color:var(--dark)}.btn-h.fill:hover{background:var(--gold-l)}
+.btn-h.fill{background:#fff;color:var(--green)}.btn-h.fill:hover{background:var(--gold);color:#fff}
 .btn-h.ghost{border:1px solid rgba(255,255,255,.3);color:#fff;background:none}.btn-h.ghost:hover{border-color:#fff;background:rgba(255,255,255,.05)}
 .hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px}
 .hero-scroll span{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.25)}
@@ -89,8 +90,18 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 @keyframes orb3{0%{transform:rotate(240deg) translateX(155px) rotate(-240deg)}100%{transform:rotate(600deg) translateX(155px) rotate(-600deg)}}
 @keyframes bobSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes drift{0%{transform:translateX(0) translateY(0)}25%{transform:translateX(12px) translateY(-8px)}50%{transform:translateX(0) translateY(-14px)}75%{transform:translateX(-12px) translateY(-8px)}100%{transform:translateX(0) translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.06}50%{transform:scale(1.15);opacity:.1}}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes fadeSlide{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:.07}50%{transform:translateY(-20px) scale(1.05);opacity:.1}100%{transform:translateY(0) scale(1);opacity:.07}}
+@keyframes wiggle{0%,100%{transform:rotate(-5deg) translateY(0)}25%{transform:rotate(3deg) translateY(-6px)}50%{transform:rotate(-2deg) translateY(-10px)}75%{transform:rotate(4deg) translateY(-4px)}}
+@keyframes growShrink{0%,100%{transform:scale(.9);opacity:.03}50%{transform:scale(1.1);opacity:.06}}
 
-.showcase{padding:80px 40px 40px;background:var(--cream);position:relative;overflow:hidden}
+.showcase{padding:80px 40px 40px;background:linear-gradient(180deg,#fff 0%,#fdfcf8 30%,#f9f6ef 60%,#fdfcf8 85%,#fff 100%);position:relative;overflow:hidden}
+.showcase::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 0% 30%,rgba(55,82,6,.04) 0%,transparent 50%),radial-gradient(ellipse at 100% 70%,rgba(245,168,8,.04) 0%,transparent 50%);pointer-events:none}
+.side-vine{position:absolute;top:0;height:100%;width:60px;pointer-events:none;z-index:1;opacity:.06}
+.side-vine.left{left:0}.side-vine.right{right:0;transform:scaleX(-1)}
 .showcase-wrap{max-width:500px;margin:0 auto;position:relative;display:flex;align-items:center;justify-content:center;min-height:440px}
 .showcase-img{width:min(75%,340px);position:relative;z-index:5;animation:plateFloat 6s ease-in-out infinite;filter:drop-shadow(0 24px 48px rgba(0,0,0,.12)) drop-shadow(0 4px 12px rgba(0,0,0,.06))}
 .showcase-ring{position:absolute;top:50%;left:50%;width:0;height:0;z-index:2}
@@ -102,15 +113,26 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .showcase-text p{font-family:var(--head);font-size:clamp(17px,2.5vw,24px);font-style:italic;color:var(--dark);font-weight:400;line-height:1.5}
 .showcase-text em{color:var(--green);font-weight:700;font-style:normal}
 
+/* ─── TRANSITION ZONE ─── */
+.section-bridge{position:relative;overflow:hidden;padding:8px 0;background:linear-gradient(180deg,#fff 0%,#f9f7f2 50%,#fff 100%)}
+.section-bridge .bridge-deco{position:absolute;pointer-events:none}
+.bridge-wave{width:100%;height:40px;opacity:.04}
+.bridge-dots{display:flex;justify-content:center;gap:16px;position:relative;z-index:2}
+.bridge-dot{width:6px;height:6px;border-radius:50%;animation:pulse 3s ease-in-out infinite}
+
 /* ─── INTRO ─── */
-.intro{padding:100px 40px;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.intro-title{font-family:var(--head);font-size:clamp(28px,4vw,44px);font-weight:400;line-height:1.2;margin-bottom:24px;font-style:italic;color:var(--dark)}
+.intro-wrap{background:linear-gradient(180deg,#fff 0%,#faf8f2 20%,#f6f3eb 50%,#faf8f2 80%,#fff 100%);position:relative;overflow:hidden;padding:20px 0 40px}
+.intro-wrap::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 100% 20%,rgba(55,82,6,.05) 0%,transparent 50%),radial-gradient(ellipse at 0% 80%,rgba(245,168,8,.05) 0%,transparent 50%);pointer-events:none}
+.intro{padding:0 40px;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;position:relative;overflow:visible}
+.intro::before{content:'';position:absolute;top:-80px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(245,168,8,.07) 0%,transparent 70%);pointer-events:none;animation:growShrink 8s ease-in-out infinite}
+.intro::after{content:'';position:absolute;bottom:-60px;left:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(55,82,6,.05) 0%,transparent 70%);pointer-events:none;animation:growShrink 10s ease-in-out 2s infinite}
+.intro-title{font-family:var(--head);font-size:clamp(28px,4vw,44px);font-weight:400;line-height:1.2;margin-bottom:16px;font-style:italic;color:var(--dark)}
 .intro-title em{font-style:normal;color:var(--green);font-weight:700}
-.intro p{font-size:15px;color:#888;line-height:2;margin-bottom:14px}
+.intro p{font-size:15px;color:#888;line-height:1.8;margin-bottom:10px}
 .intro strong{color:var(--green);font-weight:600}
-.intro-phil{font-family:var(--head);font-size:16px;color:var(--green);font-style:italic;margin-top:20px}
-.intro-img{border-radius:var(--r);overflow:hidden;background:#E8E4DA}
-.intro-img img{width:100%;height:100%;object-fit:cover;display:block}
+.intro-phil{font-family:var(--head);font-size:16px;color:var(--green);font-style:italic;margin-top:12px}
+.intro-img{border-radius:var(--r);overflow:hidden;background:#E8E4DA;height:100%;min-height:auto}
+.intro-img img{width:100%;height:100%;object-fit:cover;object-position:center 65%;display:block}
 
 /* ─── PRODUCTS ─── */
 .products{background:var(--dark);padding:100px 40px}
@@ -140,11 +162,12 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .comp-bv .c-row{border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.8)}.comp-bv .ic{color:var(--gold-l)}
 .comp-pk .c-row{border-bottom:1px solid rgba(0,0,0,.03);color:#bbb}.comp-pk .ic{color:#ddd}
 
-/* ─── PHOTO BREAK ─── */
-.photo-break{height:50vh;min-height:280px;position:relative;overflow:hidden}
-.photo-break img{width:100%;height:100%;object-fit:cover}
-.photo-break .overlay{position:absolute;inset:0;background:linear-gradient(rgba(28,28,24,.2),rgba(28,28,24,.5));display:flex;align-items:center;justify-content:center}
-.photo-break h2{font-family:var(--head);font-size:clamp(24px,5vw,48px);color:#fff;font-style:italic;font-weight:400;text-align:center;padding:0 24px;line-height:1.2}
+/* ─── PHOTO BREAK / BANNER ─── */
+.photo-break{min-height:320px;position:relative;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;padding:40px 24px}
+.photo-break img{max-width:100%;width:100%;height:auto;border-radius:var(--r);position:relative;z-index:2;box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.banner-deco{position:absolute;pointer-events:none;opacity:.06}
+@keyframes bannerFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes bannerSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 /* ─── FOUNDER ─── */
 .founder{padding:100px 40px;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:5fr 4fr;gap:60px;align-items:center}
@@ -173,7 +196,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .loc-hrs{font-size:11px;color:var(--green);font-weight:600;margin-top:8px;padding-top:8px;border-top:1px solid rgba(0,0,0,.04)}
 
 /* ─── IMPACT ─── */
-.impact{padding:100px 40px;background:var(--cream)}
+.impact{padding:100px 40px;background:#fff}
 .impact-inner{max-width:1000px;margin:0 auto}
 .impact-head{text-align:center;margin-bottom:40px}
 .impact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
@@ -209,7 +232,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 /* ─── CONTACT ─── */
 .contact{display:grid;grid-template-columns:1fr 1fr}
 .contact-photo{background:url('images/hero.jpg') center/cover no-repeat,linear-gradient(135deg,#375206,#1a2903);min-height:400px;position:relative}
-.contact-photo::after{content:'';position:absolute;inset:0;background:rgba(55,82,6,.3)}
+.contact-photo::after{content:'';position:absolute;inset:0;background:rgba(55,82,6,.25)}
 .contact-info{background:#fff;padding:80px 56px;display:flex;flex-direction:column;justify-content:center}
 .contact-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--green-l);font-weight:500;margin-bottom:8px}
 .contact-title{font-family:var(--head);font-size:clamp(24px,3.5vw,38px);font-weight:400;font-style:italic;margin-bottom:28px}
@@ -218,7 +241,7 @@ a{text-decoration:none;color:inherit}button{border:none;cursor:pointer;font:inhe
 .c-item a{font-size:16px;color:var(--dark);font-weight:600;transition:color .3s}.c-item a:hover{color:var(--green)}
 .socials{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .soc{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:600;padding:10px 20px;background:var(--green);color:#fff;transition:all .3s}
-.soc:hover{background:var(--gold);color:var(--dark)}
+.soc:hover{background:var(--gold);color:#fff}
 
 /* ─── FOOTER ─── */
 footer{background:var(--dark);padding:40px;text-align:center}
@@ -234,7 +257,7 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
   .nav-links,.nav-cta{display:none}
   .nav-ham{display:flex}
   .nav-brand{font-size:15px;letter-spacing:.5px}
-  .nav-logo{height:28px}
+  .nav-logo{height:34px}
 
   .hero-content{padding:0 20px}
   .hero h1{font-size:clamp(28px,8vw,42px);line-height:1.15}
@@ -245,7 +268,9 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
   .showcase-wrap{min-height:320px}
   .showcase-badge{font-size:9px;padding:6px 12px}
 
-  .intro{grid-template-columns:1fr;gap:32px;padding:60px 20px}
+  .intro-wrap{padding:10px 0 20px}
+  .side-vine{display:none}
+  .intro{grid-template-columns:1fr;gap:20px;padding:10px 20px}
   .intro-img{display:none}
 
   .products{padding:60px 20px}
@@ -258,7 +283,7 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
   .comp-bv,.comp-pk{padding:28px}
   .c-row{font-size:13px;padding:10px 0}
 
-  .photo-break{height:35vh;min-height:200px}
+  .photo-break{height:auto;min-height:200px;padding:40px 20px}
 
   .founder{grid-template-columns:1fr;gap:28px;padding:60px 20px}
   .f-img{max-width:280px;margin:0 auto}
@@ -301,10 +326,10 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
 <nav class="nav" id="mainNav"><div class="nav-inner">
   <div class="nav-left" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <div class="nav-logo-wrap">
-      <img src="images/logo.png" alt="Bananavore" class="nav-logo" onerror="this.style.display='none'">
+      <img src="images/logo.svg" alt="Bananavore" class="nav-logo" onerror="this.style.display='none'">
       <div class="shine"></div>
     </div>
-    <span class="nav-brand">BANANAVORE</span>
+    <img src="images/logo-text.svg" alt="BANANAVORE" class="nav-brand" onerror="this.outerHTML='<span style=\'font-family:Arial Black,Impact,sans-serif;font-size:17px;color:#f5a808;font-weight:900;letter-spacing:1.5px\'>BANANAVORE</span>'">
   </div>
   <div class="nav-links">
     <span class="nav-link" onclick="go('about')">About</span>
@@ -344,6 +369,18 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
 
 <!-- ═══ SHOWCASE ═══ -->
 <section class="showcase">
+  <!-- Side vine decorations -->
+  <svg class="side-vine left" viewBox="0 0 60 800" preserveAspectRatio="xMidYMid slice"><path d="M30 0C30 0 20 40 25 80C30 120 15 160 20 200C25 240 10 280 15 320C20 360 8 400 15 440C22 480 10 520 18 560C26 600 12 640 20 680C28 720 15 760 25 800" fill="none" stroke="#375206" stroke-width="1.5" opacity=".5"/><circle cx="20" cy="80" r="4" fill="#f5a808" opacity=".6"><animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite"/></circle><circle cx="15" cy="200" r="3" fill="#375206" opacity=".5"><animate attributeName="r" values="2;4;2" dur="4s" repeatCount="indefinite"/></circle><circle cx="22" cy="320" r="4" fill="#f5a808" opacity=".4"><animate attributeName="r" values="3;5;3" dur="3.5s" repeatCount="indefinite"/></circle><circle cx="18" cy="440" r="3" fill="#375206" opacity=".5"><animate attributeName="r" values="2;4;2" dur="4.5s" repeatCount="indefinite"/></circle><circle cx="25" cy="560" r="4" fill="#f5a808" opacity=".4"><animate attributeName="r" values="3;5;3" dur="3s" begin="1s" repeatCount="indefinite"/></circle><path d="M20 120C20 120 30 110 35 120C40 130 30 135 25 130" fill="#375206" opacity=".4"/><path d="M15 280C15 280 5 270 3 280C1 290 10 295 15 288" fill="#375206" opacity=".3"/><path d="M18 480C18 480 28 470 32 480C36 490 26 495 20 488" fill="#375206" opacity=".35"/></svg>
+  <svg class="side-vine right" viewBox="0 0 60 800" preserveAspectRatio="xMidYMid slice"><path d="M30 0C30 0 20 40 25 80C30 120 15 160 20 200C25 240 10 280 15 320C20 360 8 400 15 440C22 480 10 520 18 560C26 600 12 640 20 680C28 720 15 760 25 800" fill="none" stroke="#f5a808" stroke-width="1.5" opacity=".4"/><circle cx="20" cy="120" r="3" fill="#f5a808" opacity=".5"><animate attributeName="r" values="2;4;2" dur="3s" begin=".5s" repeatCount="indefinite"/></circle><circle cx="15" cy="300" r="4" fill="#375206" opacity=".4"><animate attributeName="r" values="3;5;3" dur="4s" begin="1s" repeatCount="indefinite"/></circle><circle cx="22" cy="480" r="3" fill="#f5a808" opacity=".5"><animate attributeName="r" values="2;4;2" dur="3.5s" repeatCount="indefinite"/></circle><path d="M20 200C20 200 30 190 35 200C40 210 30 215 25 208" fill="#f5a808" opacity=".3"/><path d="M15 400C15 400 5 390 3 400C1 410 10 415 15 408" fill="#f5a808" opacity=".25"/></svg>
+  <!-- Floating banana shapes on sides -->
+  <svg style="position:absolute;top:15%;left:2%;width:45px;opacity:.07;animation:wiggle 8s ease-in-out infinite" viewBox="0 0 80 120" fill="none"><path d="M40 5C40 5 15 20 10 50C5 80 15 105 40 115C65 105 75 80 70 50C65 20 40 5 40 5Z" fill="#f5a808"/><path d="M40 5C40 5 35 25 38 50C41 75 40 95 40 115" stroke="#375206" stroke-width="1.5" fill="none" opacity=".3"/></svg>
+  <svg style="position:absolute;bottom:20%;right:2%;width:40px;opacity:.06;animation:wiggle 9s ease-in-out 2s infinite;transform:scaleX(-1)" viewBox="0 0 80 120" fill="none"><path d="M40 5C40 5 15 20 10 50C5 80 15 105 40 115C65 105 75 80 70 50C65 20 40 5 40 5Z" fill="#375206"/><path d="M40 5C40 5 35 25 38 50C41 75 40 95 40 115" stroke="#f5a808" stroke-width="1.5" fill="none" opacity=".3"/></svg>
+  <!-- Extra floating circles on sides -->
+  <svg style="position:absolute;top:40%;left:3%;opacity:.05;animation:floatUp 6s ease-in-out infinite" width="14" height="14"><circle cx="7" cy="7" r="6" fill="#375206"/></svg>
+  <svg style="position:absolute;top:60%;right:3%;opacity:.05;animation:floatUp 7s ease-in-out 1.5s infinite" width="12" height="12"><circle cx="6" cy="6" r="5" fill="#f5a808"/></svg>
+  <svg style="position:absolute;top:25%;right:6%;opacity:.04;animation:floatUp 5s ease-in-out 3s infinite" width="8" height="8"><circle cx="4" cy="4" r="3" fill="#375206"/></svg>
+  <svg style="position:absolute;bottom:35%;left:5%;opacity:.04;animation:floatUp 8s ease-in-out 1s infinite" width="10" height="10"><circle cx="5" cy="5" r="4" fill="#f5a808"/></svg>
+  <!-- Original leaf decos -->
   <svg class="showcase-deco" style="top:10%;left:5%;width:120px" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#375206"/></svg>
   <svg class="showcase-deco" style="bottom:8%;right:4%;width:100px;transform:scaleX(-1) rotate(15deg)" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#375206"/></svg>
   <div class="showcase-wrap rv">
@@ -366,11 +403,26 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
 </section>
 
 <!-- ═══ INTRO ═══ -->
+<div class="intro-wrap">
+  <!-- Side vine decorations -->
+  <svg class="side-vine left" viewBox="0 0 60 600" preserveAspectRatio="xMidYMid slice"><path d="M30 0C30 0 22 30 26 60C30 90 16 120 20 150C24 180 12 210 18 240C24 270 10 300 16 330C22 360 14 390 20 420C26 450 12 480 20 510C28 540 16 570 25 600" fill="none" stroke="#375206" stroke-width="1.5" opacity=".5"/><circle cx="22" cy="60" r="3" fill="#f5a808" opacity=".5"><animate attributeName="r" values="2;4;2" dur="3s" repeatCount="indefinite"/></circle><circle cx="18" cy="180" r="3" fill="#375206" opacity=".4"><animate attributeName="r" values="2;4;2" dur="4s" begin="1s" repeatCount="indefinite"/></circle><circle cx="24" cy="330" r="4" fill="#f5a808" opacity=".5"><animate attributeName="r" values="3;5;3" dur="3.5s" begin=".5s" repeatCount="indefinite"/></circle><path d="M22 100C22 100 32 90 36 100C40 110 30 115 24 108" fill="#375206" opacity=".35"/><path d="M16 250C16 250 6 240 4 250C2 260 12 265 16 258" fill="#375206" opacity=".3"/></svg>
+  <svg class="side-vine right" viewBox="0 0 60 600" preserveAspectRatio="xMidYMid slice"><path d="M30 0C30 0 22 30 26 60C30 90 16 120 20 150C24 180 12 210 18 240C24 270 10 300 16 330C22 360 14 390 20 420C26 450 12 480 20 510C28 540 16 570 25 600" fill="none" stroke="#f5a808" stroke-width="1.5" opacity=".4"/><circle cx="20" cy="100" r="3" fill="#f5a808" opacity=".4"><animate attributeName="r" values="2;4;2" dur="3s" begin="1s" repeatCount="indefinite"/></circle><circle cx="16" cy="280" r="3" fill="#375206" opacity=".4"><animate attributeName="r" values="2;4;2" dur="4s" repeatCount="indefinite"/></circle><path d="M20 180C20 180 30 170 34 180C38 190 28 195 22 188" fill="#f5a808" opacity=".3"/></svg>
+  <!-- Floating side bananas -->
+  <svg style="position:absolute;top:10%;left:2%;width:40px;opacity:.06;animation:wiggle 7s ease-in-out infinite" viewBox="0 0 80 120" fill="none"><path d="M40 5C40 5 15 20 10 50C5 80 15 105 40 115C65 105 75 80 70 50C65 20 40 5 40 5Z" fill="#f5a808"/><path d="M40 5C40 5 35 25 38 50C41 75 40 95 40 115" stroke="#375206" stroke-width="1.5" fill="none" opacity=".3"/></svg>
+  <svg style="position:absolute;bottom:15%;right:2%;width:35px;opacity:.05;animation:wiggle 8s ease-in-out 2s infinite;transform:scaleX(-1)" viewBox="0 0 80 120" fill="none"><path d="M40 5C40 5 15 20 10 50C5 80 15 105 40 115C65 105 75 80 70 50C65 20 40 5 40 5Z" fill="#375206"/><path d="M40 5C40 5 35 25 38 50C41 75 40 95 40 115" stroke="#f5a808" stroke-width="1.5" fill="none" opacity=".3"/></svg>
+  <!-- Side circles -->
+  <svg style="position:absolute;top:30%;left:3%;opacity:.05;animation:floatUp 6s ease-in-out infinite" width="12" height="12"><circle cx="6" cy="6" r="5" fill="#375206"/></svg>
+  <svg style="position:absolute;top:50%;right:3%;opacity:.04;animation:floatUp 7s ease-in-out 1.5s infinite" width="10" height="10"><circle cx="5" cy="5" r="4" fill="#f5a808"/></svg>
+  <svg style="position:absolute;bottom:30%;left:4%;opacity:.04;animation:floatUp 5s ease-in-out 3s infinite" width="8" height="8"><circle cx="4" cy="4" r="3" fill="#f5a808"/></svg>
+  <!-- Spinning rings -->
+  <svg style="position:absolute;top:5%;right:5%;width:100px;height:100px;opacity:.03;animation:spinSlow 45s linear infinite" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#375206" stroke-width="1" stroke-dasharray="5 8"/></svg>
+  <svg style="position:absolute;bottom:10%;left:4%;width:80px;height:80px;opacity:.03;animation:spinSlow 35s linear infinite reverse" viewBox="0 0 80 80"><circle cx="40" cy="40" r="35" fill="none" stroke="#f5a808" stroke-width="1" stroke-dasharray="4 6"/></svg>
+
 <section class="intro" id="about">
-  <div class="intro-img rv">
-    <img src="images/hero.jpg" alt="Bananavore rice bowl" onerror="this.outerHTML='<div class=\'img-ph\' style=\'aspect-ratio:3/4\'><div class=\'ph-icon\'>🍚</div><div class=\'ph-label\'>Hero food photo</div><div class=\'ph-file\'>hero.jpg</div></div>'">
+  <div class="intro-img rv" style="height:100%">
+    <img src="images/hero2.jpg" alt="Bananavore takeaway bowl" onerror="this.src='images/hero.jpg'">
   </div>
-  <div class="rv" style="transition-delay:.1s">
+  <div class="rv" style="transition-delay:.1s;display:flex;flex-direction:column;justify-content:center">
     <div class="intro-title">Hello! We're <em>Bananavore.</em></div>
     <p><strong>Bananavore</strong> is a passion-driven venture developed by a BS Agribusiness Management student from <strong>UP Los Baños</strong>.</p>
     <p>We celebrate the full potential of the banana plant by crafting luncheon meat from <strong>pseudostems, blossoms, and peels</strong> — parts that are often discarded but naturally <strong>nutritious</strong> and full of flavor.</p>
@@ -378,6 +430,7 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
     <p class="intro-phil">Filipino-grown. Filipino-inspired.<br>Good for you. Good for the community.</p>
   </div>
 </section>
+</div><!-- /intro-wrap -->
 
 <!-- ═══ PRODUCTS ═══ -->
 <section class="products" id="products"><div class="products-inner">
@@ -401,10 +454,20 @@ footer .copy{font-size:10px;color:rgba(255,255,255,.15)}
   </div>
 </div>
 
-<!-- ═══ PHOTO BREAK ═══ -->
+<!-- ═══ PHOTO BREAK (Brand Banner) ═══ -->
 <div class="photo-break">
-  <img src="images/hero.jpg" alt="Bananavore" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#375206,#808a5f)\'></div>'">
-  <div class="overlay"><h2>Healthy, hearty meals await.</h2></div>
+  <!-- Deco: spinning dashed rings -->
+  <svg class="banner-deco" style="top:-40px;left:-40px;width:200px;height:200px;animation:bannerSpin 40s linear infinite" viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="#f5a808" stroke-width="1" stroke-dasharray="6 12"/></svg>
+  <svg class="banner-deco" style="bottom:-30px;right:-30px;width:180px;height:180px;animation:bannerSpin 50s linear infinite reverse" viewBox="0 0 180 180"><circle cx="90" cy="90" r="80" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="8 16"/></svg>
+  <!-- Deco: floating leaves -->
+  <svg class="banner-deco" style="top:15%;right:8%;width:80px;animation:bannerFloat 6s ease-in-out infinite" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#fff"/></svg>
+  <svg class="banner-deco" style="bottom:10%;left:6%;width:60px;animation:bannerFloat 7s ease-in-out 1.5s infinite;transform:scaleX(-1)" viewBox="0 0 200 500" fill="none"><path d="M100 10C100 10 40 80 30 180C20 280 45 380 80 450C90 470 100 480 100 490C100 480 110 470 120 450C155 380 180 280 170 180C160 80 100 10 100 10Z" fill="#f5a808"/></svg>
+  <!-- Deco: dots -->
+  <svg class="banner-deco" style="top:20%;left:12%;opacity:.08;animation:bannerFloat 5s ease-in-out infinite" width="10" height="10"><circle cx="5" cy="5" r="5" fill="#f5a808"/></svg>
+  <svg class="banner-deco" style="bottom:25%;right:15%;opacity:.08;animation:bannerFloat 6s ease-in-out 2s infinite" width="8" height="8"><circle cx="4" cy="4" r="4" fill="#fff"/></svg>
+  <svg class="banner-deco" style="top:60%;left:20%;opacity:.05;animation:bannerFloat 8s ease-in-out 1s infinite" width="6" height="6"><circle cx="3" cy="3" r="3" fill="#f5a808"/></svg>
+  <!-- Banner image -->
+  <img src="images/banner.png" alt="Bananavore" onerror="this.outerHTML='<h2 style=\'font-family:var(--head);font-size:clamp(24px,5vw,48px);color:#fff;font-style:italic;font-weight:400;text-align:center;position:relative;z-index:2\'>Fuel Your Day, The Plant-Based Way.</h2>'">
 </div>
 
 <!-- ═══ FOUNDER ═══ -->
@@ -511,7 +574,7 @@ window.addEventListener('scroll',function(){
   var s=window.scrollY>80;
   nav.classList.toggle('solid',s);
   if(logo){
-    if(s){logo.style.animation='none';logo.style.filter='none'}
+    if(s){logo.style.animation='none';logo.style.filter='drop-shadow(0 0 2px rgba(255,255,255,.3))'}
     else{logo.style.animation='glowBreath 3s ease-in-out infinite'}
   }
 },{passive:true});
